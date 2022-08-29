@@ -23,6 +23,9 @@ cp ${BASE_DIR}/build/plugin-server.spec ${OUTPUT_PATH}
 
 cat >>${OUTPUT_PATH}/Dockerfile <<EOF
 
+ENV GO111MODULE on
+ENV GOPROXY https://goproxy.cn,direct
+
 COPY plugin-server.spec /root/rpmbuild/SPECS
 COPY plugin-server.tar.gz /root/rpmbuild/SOURCES
 RUN echo '%_topdir /root/rpmbuild' > /root/.rpmmacros \

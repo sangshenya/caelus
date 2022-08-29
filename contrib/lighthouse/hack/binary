@@ -5,6 +5,7 @@ set -o pipefail
 set -o nounset
 
 BASE_DIR=$(cd $(dirname $0)/.. && pwd)
+go env -w GOPROXY=https://goproxy.cn,direct
 source ${BASE_DIR}/hack/common.sh
 
 go build -o ${OUTPUT_PATH}/bin/${PACKAGE_NAME} \
